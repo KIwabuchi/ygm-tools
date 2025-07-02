@@ -13,7 +13,7 @@
 
 #include <arrow/io/file.h>
 #include <parquet/stream_writer.h>
-#include <boost/json/src.hpp>
+#include <boost/json.hpp>
 
 #include <ygm/comm.hpp>
 #include <ygm/io/csv_parser.hpp>
