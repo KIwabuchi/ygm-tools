@@ -17,13 +17,19 @@ include(FetchContent)
 
 option(USE_SALTATLAS OFF)
 option(USE_KROWKEE OFF)
+option(INSTALL_PARQUET "Installs Arrow Parquet." OFF)
 
-
+#
+# Arrow
+#
+include(FindArrowParquet)
+if (INSTALL_PARQUET)
+    install_arrow_parquet()
+endif ()
 
 #
 #  YGM
-set(YGM_REQUIRE_PARQUET ON)
-set(YGM_INSTALL_PARQUET ON)
+set(YGM_INSTALL_PARQUET OFF)
 FetchContent_Declare(YGM
     GIT_REPOSITORY https://github.com/llnl/ygm.git
     GIT_TAG v0.8-dev

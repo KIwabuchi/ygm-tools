@@ -4,3 +4,12 @@
 # SPDX-License-Identifier: MIT
 
 add_ygm_executable(read_json_example)
+
+add_ygm_executable(read_trace)
+
+if (Arrow_FOUND AND Parquet_FOUND)
+    add_ygm_executable(parquet_tools)
+    link_arrow_parquet(parquet_tools)
+    target_include_directories(parquet_tools PUBLIC ${Boost_INCLUDE_DIRS})
+    file(COPY ./parquet_tools_subcmd.json DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+endif ()
